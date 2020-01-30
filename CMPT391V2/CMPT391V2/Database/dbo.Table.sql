@@ -1,13 +1,8 @@
-﻿CREATE TABLE [dbo].student
+﻿CREATE TABLE [dbo].department
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
-    [last_name] NCHAR(20) NULL, 
-    [first_name] NCHAR(20) NULL, 
-    [dob] DATE NULL, 
-    [street] NCHAR(20) NULL, 
-    [city] NCHAR(20) NULL, 
-    [province] NCHAR(10) NULL, 
-    [country] NCHAR(20) NULL, 
-    [postal] NCHAR(10) NULL, 
-    [total_credits] NCHAR(10) NULL,
+	id INT NOT NULL PRIMARY KEY,
+	dept_name NCHAR(20) UNIQUE NULL,
+	building INT NULL,
+	dept_head INT UNIQUE null,
+	CONSTRAINT fk_department_instructor FOREIGN KEY (dept_head) REFERENCES instructor (id),
 )
